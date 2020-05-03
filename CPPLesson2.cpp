@@ -7,20 +7,12 @@
 #include <cmath> // std::abs
 #include <algorithm> // std::max
 
-void radius()
-{
-    std::cout << "Enter a radius: ";
-    int rad{ 0 };
-    std::cin >> rad;
-    std::cout << "The cirumference is: " << 2 * rad * constants::pi << std::endl;
-}
+
 
 int main()
 { 
 
     std::cout << "CPP" << std::endl;
-
-    radius();
 
     return 0;
 } 

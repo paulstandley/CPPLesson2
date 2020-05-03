@@ -193,4 +193,11 @@ Global variables can have either internal or external linkage, via the static an
     */
 }
 
+void radius()
+{
+    std::cout << "Enter a radius: ";
+    int rad{ 0 };
+    std::cin >> rad;
+    std::cout << "The cirumference is: " << 2 * rad * constants::pi << std::endl;
+}
 
