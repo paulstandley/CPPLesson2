@@ -6,32 +6,26 @@
 #include "CPPLesson.h"
 #include <cmath> // std::abs
 #include <algorithm> // std::max
+#include <typeinfo> // for typeid()
 
-void typeAliases()
+namespace // unnamed namespace
 {
-    typedef long miles_t;
-    typedef long speed_t;
+    void doSomething1() // can only be accessed in this file
+    {
+        std::cout << "v1\n";
+    }
+}
 
-    miles_t distance{ 5 };
-    speed_t mhz{ 3200 };
-
-    // The following is valid, because distance and mhz are both actually type long
-    distance = mhz;
-
-
-    typedef double distance_t1;
-    // define distance_t1 as an alias for type double
-    using distance_t2 = double;
-    // define distance_t2 as an alias for type double
-    /*
-      Favor type aliases over typedefs,
-      and use them liberally to document the meaning of your types.
-    */
+static void doSomething2() // can only be accessed in this file
+{
+    std::cout << "v1\n";
 }
 
 int main()
 { 
 
+    doSomething1();
+    doSomething2();
 
 
     return 0;

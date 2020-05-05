@@ -55,6 +55,7 @@ void usingDeclarations();
 void usingDirective();
 
 void typeAliases();
+void auto_values();
 
 
 #endif // CPPLESSON_H

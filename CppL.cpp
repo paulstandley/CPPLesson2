@@ -3,6 +3,7 @@
 #include "CPPLesson.h"
 #include <cmath> // std::abs
 #include <algorithm> // std::max
+#include <typeinfo> // for typeid()
 
 void isOddEven()
 {
@@ -228,4 +229,49 @@ void usingDirective()
     // this using directive tells the compiler that we're using everything in the std namespace!
     cout << "Using directive" << endl;
 }
+
+void typeAliases()
+{
+    typedef long miles_t;
+    typedef long speed_t;
+
+    miles_t distance{ 5 };
+    speed_t mhz{ 3200 };
+
+    // The following is valid, because distance and mhz are both actually type long
+    distance = mhz;
+
+
+    typedef double distance_t1;
+    // define distance_t1 as an alias for type double
+    using distance_t2 = double;
+    // define distance_t2 as an alias for type double
+    /*
+      Favor type aliases over typedefs,
+      and use them liberally to document the meaning of your types.
+    */
+}
+
+void auto_values()
+{
+    /*
+    auto d{ 5.0 }; // 5.0 is a double literal, so d will be type double
+    auto i{ 1 + 2 }; // 1 + 2 evaluates to an int, so i will be type int
+
+    auto add(int x, int y) -> int;
+    auto divide(double x, double y) -> double;
+    auto printSomething() -> void;
+    auto generateSubstring(const std::string &s, int start, int len) -> std::string;
+    */
+
+    double d{ 4.0 };
+    short s{ 2 };
+    std::cout << typeid(d + s).name() << ' ' << d + s << '\n'; // show us the type of d + s
+
+    std::cout << 5u - 10; // 5u means treat 5 as an unsigned integer
+    // you might expect the expression 5u - 10 to evaluate to -5 since 5 - 10 = -5. But here’s what actually happens:
+    // 4294967291
+
+}
+
 
