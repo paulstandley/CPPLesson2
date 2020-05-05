@@ -4,6 +4,7 @@
 #include <cmath> // std::abs
 #include <algorithm> // std::max
 #include <typeinfo> // for typeid()
+#include "constants.h"
 
 void isOddEven()
 {
@@ -199,7 +200,7 @@ void radius()
     std::cout << "Enter a radius: ";
     int rad{ 0 };
     std::cin >> rad;
-    std::cout << "The cirumference is: " << 2 * rad * constants::pi << std::endl;
+    std::cout << "The cirumference is: " << 2 * rad * constants1::pi << std::endl;
 }
 
 void incrementAndPrint()
@@ -274,4 +275,29 @@ void auto_values()
 
 }
 
+void max_class_size1()
+{
+    std::cout << "How many students are in your class? ";
+    int students{};
+    std::cin >> students;
+    if (students > constants::max_class_size)
+        std::cout << "There are too many students in this class";
+    else
+        std::cout << "This class isn't too large";
+}
+
+bool passOrFail()
+{
+    static int passes{ 3 };
+    return (--passes >= 0);
+}
+
+void displayPassOrFail()
+{
+    std::cout << "User #1: " << (passOrFail() ? "Pass\n" : "Fail\n");
+    std::cout << "User #2: " << (passOrFail() ? "Pass\n" : "Fail\n");
+    std::cout << "User #3: " << (passOrFail() ? "Pass\n" : "Fail\n");
+    std::cout << "User #4: " << (passOrFail() ? "Pass\n" : "Fail\n");
+    std::cout << "User #5: " << (passOrFail() ? "Pass\n" : "Fail\n");
+}
 

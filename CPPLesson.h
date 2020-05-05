@@ -14,7 +14,7 @@ using int32_t = int;
 */
 
 // define your own namespace to hold constants
-namespace constants
+namespace constants1
 {
     // constants have internal linkage by default
     constexpr double pi{ 3.14159 };
@@ -24,7 +24,7 @@ namespace constants
 }
 
 // define your own namespace to hold constants
-namespace constants1
+namespace constants2
 {
     inline constexpr double pi{ 3.14159 }; // note: now inline constexpr
     inline constexpr double avogadro{ 6.0221413e23 };
@@ -45,6 +45,30 @@ namespace constants1
 {
     std::cout << "v1\n";
 }
+
+inline namespace v1 // declare an inline namespace named v1
+{
+    void doSomethingv()
+    {
+        std::cout << "v1\n";
+    }
+}
+
+namespace v2 // declare a normal namespace named v2
+{
+    void doSomethingv()
+    {
+        std::cout << "v2\n";
+    }
+}
+
+void inlineNamespaces()
+{
+    v1::doSomethingv(); // calls the v1 version of doSomething()
+    v2::doSomethingv(); // calls the v2 version of doSomething()
+    doSomethingv(); // calls the inline version of doSomething() (which is v1)
+}
+
 */
 
 void radius();
@@ -74,6 +98,10 @@ void usingDirective();
 void typeAliases();
 void auto_values();
 
+void max_class_size1();
+
+bool passOrFail();
+void displayPassOrFail();
 
 #endif // CPPLESSON_H
 
