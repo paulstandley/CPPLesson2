@@ -7,15 +7,27 @@
 #include <cmath> // std::abs
 #include <algorithm> // std::max
 
+void usingDeclarations()
+{
+    using std::cout;
+    using std::endl;
+    // this using declaration tells the compiler that cout should resolve to std::cout
+    cout << "Using declaration" << endl;
+}
 
+void usingDirective()
+{
+    using namespace std; 
+    // this using directive tells the compiler that we're using everything in the std namespace!
+    cout << "Using directive" << endl;
+}
 
 int main()
 { 
 
-    using std::cout; 
-    // this using declaration tells the compiler that cout should resolve to std::cout
-    cout << "CPP" << std::endl;
+    usingDeclarations();
 
+    usingDirective();
 
     return 0;
 } 
