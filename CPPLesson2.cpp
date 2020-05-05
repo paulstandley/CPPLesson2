@@ -8,25 +8,33 @@
 #include <algorithm> // std::max
 #include <typeinfo> // for typeid()
 
-namespace // unnamed namespace
+inline namespace v1 // declare an inline namespace named v1
 {
-    void doSomething1() // can only be accessed in this file
+    void doSomethingv()
     {
         std::cout << "v1\n";
     }
 }
 
-static void doSomething2() // can only be accessed in this file
+namespace v2 // declare a normal namespace named v2
 {
-    std::cout << "v1\n";
+    void doSomethingv()
+    {
+        std::cout << "v2\n";
+    }
+}
+
+void inlineNamespaces()
+{
+    v1::doSomethingv(); // calls the v1 version of doSomething()
+    v2::doSomethingv(); // calls the v2 version of doSomething()
+    doSomethingv(); // calls the inline version of doSomething() (which is v1)
 }
 
 int main()
 { 
-
-    doSomething1();
-    doSomething2();
-
+ 
+    inlineNamespaces();
 
     return 0;
 } 

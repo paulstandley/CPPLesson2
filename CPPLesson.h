@@ -1,6 +1,7 @@
 #ifndef CPPLESSON_H
 #define CPPLESSON_H
 
+/*
 #ifdef INT_2_BYTES
 using int8_t = char;
 using int16_t = int;
@@ -10,6 +11,7 @@ using int8_t = char;
 using int16_t = short;
 using int32_t = int;
 #endif // INT_2_BYTES
+*/
 
 // define your own namespace to hold constants
 namespace constants
@@ -29,6 +31,21 @@ namespace constants1
     inline constexpr double my_gravity{ 9.2 }; // m/s^2 -- gravity is light on this planet
     // ... other related constants
 }
+
+/*
+    namespace // unnamed namespace
+{
+    void doSomething1() // can only be accessed in this file
+    {
+        std::cout << "v1\n";
+    }
+}
+
+    static void doSomething2() // can only be accessed in this file
+{
+    std::cout << "v1\n";
+}
+*/
 
 void radius();
 
