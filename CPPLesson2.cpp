@@ -7,27 +7,32 @@
 #include <cmath> // std::abs
 #include <algorithm> // std::max
 
-void usingDeclarations()
+void typeAliases()
 {
-    using std::cout;
-    using std::endl;
-    // this using declaration tells the compiler that cout should resolve to std::cout
-    cout << "Using declaration" << endl;
-}
+    typedef long miles_t;
+    typedef long speed_t;
 
-void usingDirective()
-{
-    using namespace std; 
-    // this using directive tells the compiler that we're using everything in the std namespace!
-    cout << "Using directive" << endl;
+    miles_t distance{ 5 };
+    speed_t mhz{ 3200 };
+
+    // The following is valid, because distance and mhz are both actually type long
+    distance = mhz;
+
+
+    typedef double distance_t1;
+    // define distance_t1 as an alias for type double
+    using distance_t2 = double;
+    // define distance_t2 as an alias for type double
+    /*
+      Favor type aliases over typedefs,
+      and use them liberally to document the meaning of your types.
+    */
 }
 
 int main()
 { 
 
-    usingDeclarations();
 
-    usingDirective();
 
     return 0;
 } 

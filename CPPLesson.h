@@ -1,6 +1,16 @@
 #ifndef CPPLESSON_H
 #define CPPLESSON_H
 
+#ifdef INT_2_BYTES
+using int8_t = char;
+using int16_t = int;
+using int32_t = long;
+#else
+using int8_t = char;
+using int16_t = short;
+using int32_t = int;
+#endif // INT_2_BYTES
+
 // define your own namespace to hold constants
 namespace constants
 {
@@ -40,6 +50,11 @@ void global_variables_external_linkage();
 
 void incrementAndPrint();
 int generateID();
+
+void usingDeclarations();
+void usingDirective();
+
+void typeAliases();
 
 
 #endif // CPPLESSON_H

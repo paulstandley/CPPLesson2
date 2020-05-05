@@ -214,4 +214,18 @@ int generateID()
     return s_itemID++; // makes copy of s_itemID, increments the real s_itemID, then returns the value in the copy
 }
 
+void usingDeclarations()
+{
+    using std::cout;
+    using std::endl;
+    // this using declaration tells the compiler that cout should resolve to std::cout
+    cout << "Using declaration" << endl;
+}
+
+void usingDirective()
+{
+    using namespace std;
+    // this using directive tells the compiler that we're using everything in the std namespace!
+    cout << "Using directive" << endl;
+}
 
