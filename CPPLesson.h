@@ -38,6 +38,8 @@ void global_variables_internal_linkage();
 
 void global_variables_external_linkage();
 
+void incrementAndPrint();
+int generateID();
 
 
 #endif // CPPLESSON_H
